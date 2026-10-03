@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Viaje Juntos - Corazón de Melón</title>
+    <!-- Tailwind CSS for modern responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for romantic typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fbcfe8 0%, #f472b6 50%, #db2777 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .font-title {
+            font-family: 'Playfair Display', serif;
+        }
+        .font-script {
+            font-family: 'Great Vibes', cursive;
+        }
+        
+        /* Realistic book shadow */
+        .book-container {
+            box-shadow: 0 25px 50px -12px rgba(190, 24, 93, 0.4), 0 0 30px rgba(255, 255, 255, 0.3) inset;
+        }
+
+        /* Spiral binding rings */
+        .spiral-ring {
+            width: 28px;
+            height: 16px;
+            background: linear-gradient(to right, #e2e8f0, #cbd5e1, #64748b);
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.3), inset 0 2px 3px rgba(255,255,255,0.8);
+            margin: 6px 0;
+            z-index: 30;
+            position: relative;
+        }
+        .spiral-ring::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 3px;
+            right: 3px;
+            height: 4px;
+            background: rgba(0,0,0,0.15);
+            border-radius: 2px;
+        }
+
+        /* Floating background hearts animation */
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+        .floating-heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.6);
+            animation: floatUp 8s infinite linear;
+            pointer-events: none;
+        }
+
+        /* Custom scrollbar for book pages */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 241, 242, 0.5);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e11d48;
+            border-radius: 10px;
+        }
+
+        /* Page transition effects */
+        .page-sheet {
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-2 sm:p-6 relative">
+
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <i class="fa-solid fa-heart floating-heart text-2xl" style="left: 10%; animation-delay: 0s; animation-duration: 7s;"></i>
+        <i class="fa-solid fa-heart floating-heart text-4xl" style="left: 25%; animation-delay: 2s; animation-duration: 9s;"></i>
+        <i class="fa-solid fa-heart floating-heart text-xl" style="left: 40%; animation-delay: 4s; animation-duration: 6s;"></i>
+        <i class="fa-solid fa-heart floating-heart text-3xl" style="left: 65%; animation-delay: 1s; animation-duration: 8s;"></i>
+        <i class="fa-solid fa-heart floating-heart text-2xl" style="left: 85%; animation-delay: 3s; animation-duration: 10s;"></i>
+    </div>
+
+    <!-- Main Header Title -->
+    <header class="text-center mb-4 z-10">
+        <h1 class="font-title text-3xl sm:text-4xl font-bold text-white drop-shadow-md">Nuestra Historia de Amor</h1>
+        <p class="text-pink-100 text-sm italic">Un libro interactivo hecho con todo mi corazón</p>
+    </header>
+
+    <main class="w-full max-w-5xl z-10 flex flex-col items-center">
+        <!-- Notebook Book Frame -->
+        <div class="book-container relative w-full bg-gradient-to-br from-pink-50 via-pink-100 to-rose-100 rounded-3xl border-8 border-rose-500 overflow-hidden flex flex-col md:flex-row min-h-[580px] sm:min-h-[640px]">
+            
+            <!-- Background floral decorations (CSS/SVG) -->
+            <div class="absolute top-2 left-2 pointer-events-none opacity-40 text-pink-400 text-4xl">🌸</div>
+            <div class="absolute bottom-2 right-2 pointer-events-none opacity-40 text-pink-400 text-4xl">🌸</div>
+
+            <!-- Left Page -->
+            <section id="left-page" class="w-full md:w-1/2 p-6 sm:p-8 flex flex-col justify-between relative bg-gradient-to-br from-white/90 to-pink-50/90 border-b md:border-b-0 md:border-r border-rose-200">
+                <!-- Content injected dynamically via JS -->
+                <div id="left-content" class="flex-grow flex flex-col justify-between page-sheet">
+                    <!-- Dynamic Left Content -->
+                </div>
+            </section>
+
+            <div class="hidden md:flex flex-col items-center justify-between absolute left-1/2 top-0 bottom-0 -ml-3.5 py-4 z-30 pointer-events-none">
+                <div class="spiral-ring"></div>
+                <div class="spiral-ring"></div>
+                <div class="spiral-ring"></div>
+                <div class="spiral-ring"></div>
+                <div class="spiral-ring"></div>
+                <div class="spiral-ring"></div>
+                <div class="spiral-ring"></div>
+                <div class="spiral-ring"></div>
+                <div class="spiral-ring"></div>
+                <div class="spiral-ring"></div>
+                <div class="spiral-ring"></div>
+                <div class="spiral-ring"></div>
+                <div class="spiral-ring"></div>
+            </div>
+
+            <!-- Right Page -->
+            <section id="right-page" class="w-full md:w-1/2 p-6 sm:p-8 flex flex-col justify-between relative bg-gradient-to-br from-pink-50/90 to-white/90">
+                <!-- Content injected dynamically via JS -->
+                <div id="right-content" class="flex-grow flex flex-col justify-between page-sheet">
+                    <!-- Dynamic Right Content -->
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Book Navigation Controls (Bottom Bar) -->
+        <nav class="flex items-center justify-center gap-4 mt-6 bg-white/80 backdrop-blur-md px-6 py-3 rounded-full shadow-lg border border-pink-200">
+            <button onclick="prevSpread()" id="prev-btn" class="flex items-center gap-2 px-5 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-medium rounded-full shadow-md transition-all transform hover:scale-105 disabled:opacity-40 disabled:cursor-not-allowed disabled:transform-none">
+                <i class="fa-solid fa-arrow-left"></i> Anterior
+            </button>
+            <div class="text-rose-800 font-semibold text-sm sm:text-base px-2">
+                Páginas <span id="current-page-num">1</span> de <span id="total-pages-num">3</span>
+            </div>
+            <button onclick="nextSpread()" id="next-btn" class="flex items-center gap-2 px-5 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-medium rounded-full shadow-md transition-all transform hover:scale-105 disabled:opacity-40 disabled:cursor-not-allowed disabled:transform-none">
+                Siguiente <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </nav>
+    </main>
+
+    <script>
+        // Define all spreads (pairs of pages: Left & Right)
+        const bookSpreads = [
+            // Spread 0: Cover / Opening
+            {
+                left: `
+                    <div class="text-center my-auto flex flex-col items-center justify-center space-y-4">
+                        <h2 class="font-title text-3xl sm:text-4xl font-bold text-rose-700 leading-tight">
+                            Siempre Serás el Amor de Mi Vida ❤️
+                        </h2>
+                        <p class="text-gray-700 text-sm sm:text-base max-w-sm px-2">
+                            Pase lo que pase y sin importar cuánto tiempo transcurra, siempre vas a tener un lugar especial en mi corazón. Eres y siempre serás el amor de mi vida, mi niña berrinchuda, la persona con quien quiero seguir compartiendo momentos, risas, abrazos y sueños. Gracias por llegar a mi vida y hacerla mucho más bonita. Te amo hoy, mañana y siempre. ❤️
+                        </p>
+                        <div class="w-full max-w-[260px] h-[190px] rounded-2xl overflow-hidden shadow-md border-4 border-white mt-2">
+                            <img src="https://i.postimg.cc/HL6pWt0k/Whats-App-Image-2026-10-01-at-2-21-23-PM.jpg"
+                                 onerror="this.src='https://placehold.co/300x200/ffb6c1/8b0000?text=Amor'"
+                                 alt="Foto principal" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="pt-4 flex justify-start">
+                        <button onclick="nextSpread()" class="inline-flex items-center gap-2 px-6 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-medium rounded-full shadow-lg transition transform hover:scale-105">
+                            ABRIR <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                `,
+                right: `
+                    <div class="flex flex-col items-center justify-center h-full text-center space-y-4">
+                        <div class="relative w-full max-w-[320px] h-[380px] rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+                            <img src="https://i.postimg.cc/mkRVd7JT/foto1.jpg"
+                                 alt="Recuerdo especial" class="w-full h-full object-cover">
+                        </div>
+                        <p class="font-script text-2xl text-rose-600">Por muchos momentos más a tu lado...</p>
+                    </div>
+                `
+            },
+            // Spread 1: Mi Niña Berrinchuda
+            {
+                left: `
+                    <div class="overflow-y-auto max-h-[460px] pr-2 space-y-4 my-auto">
+                        <h2 class="font-title text-2xl sm:text-3xl font-bold text-rose-700 flex items-center gap-2">
+                            MI NIÑA BERRINCHUDA <i class="fa-solid fa-heart text-rose-500 text-xl"></i>
+                        </h2>
+                        <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
+                            Cada momento a tu lado se convierte en un recuerdo que quiero guardar para siempre. Amo tu forma de ser, tus ocurrencias, tus enojitos y hasta esos berrinches que te hacen tan tú. Gracias por llegar a mi vida y hacerla más bonita. Quiero seguir viviendo miles de aventuras contigo, abrazarte en tus días difíciles y recordarte todos los días lo mucho que te amo. Eres mi niña bonita y una de mis casualidades más hermosas. 💗
+                        </p>
+                        <div class="bg-rose-100/60 p-4 rounded-xl border border-rose-200">
+                            <p class="text-xs text-rose-800 italic font-medium">
+                                "Eres la casualidad más hermosa que llegó a mi vida."
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex justify-between items-center">
+                        <button onclick="prevSpread()" class="inline-flex items-center gap-1 px-4 py-2 bg-rose-600 text-white text-sm font-medium rounded-full hover:bg-rose-700 transition">
+                            <i class="fa-solid fa-arrow-left"></i> Anterior
+                        </button>
+                    </div>
+                `,
+                right: `
+                    <div class="flex flex-col items-center justify-center h-full text-center space-y-4">
+                        <div class="w-full max-w-[320px] h-[400px] rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-white p-2">
+                            <img src="https://i.postimg.cc/QN2WrXdX/Whats-App-Image-2026-10-01-at-2-27-40-PM.jpg" 
+                                 onerror="this.src='https://placehold.co/350x450/ffb6c1/8b0000?text=Te+Amo'"
+                                 alt="Foto pareja mascarilla" class="w-full h-full object-cover rounded-xl">
+                        </div>
+                    </div>
+                `
+            },
+            // Spread 2: La Mejor Niña Que He Conocido
+            {
+                left: `
+                    <div class="overflow-y-auto max-h-[460px] pr-2 space-y-4 my-auto">
+                        <h2 class="font-title text-2xl sm:text-3xl font-bold text-rose-700 flex items-center gap-2">
+                            LA MEJOR NIÑA QUE HE CONOCIDO <i class="fa-solid fa-heart text-rose-500 text-xl"></i>
+                        </h2>
+                        <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
+                           Quiero que sepas que para mí eres la mejor niña que he conocido. No solo por lo bonita que eres, sino por tu forma de querer, de hacerme sonreír y por todos esos pequeños detalles que te hacen tan especial. Mi niña berrinchuda, entre tus ocurrencias, tus enojos y tus sonrisas, lograste convertirte en alguien indispensable para mí. Te amo muchísimo y siempre voy a agradecer haber encontrado a una niña tan maravillosa como tú.❤️ <i class="fa-solid fa-heart text-rose-500 text-xs"></i>
+                        </p>
+                        <div class="w-full h-32 rounded-xl overflow-hidden shadow border-2 border-white">
+                            <img src="https://i.postimg.cc/FH8YNf8k/maxresdefault.jpg" onerror="this.src='https://placehold.co/300x150/ffc0cb/990033?text=Amor'" alt="Nuestra foto especial" class="w-full h-full object-cover">
+                                 onerror="this.src='https://placehold.co/300x150/ffc0cb/990033?text=Amor'"
+                                 alt="Mini foto" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="pt-4 flex justify-start">
+                        <button onclick="goToSpread(0)" class="inline-flex items-center gap-1 px-5 py-2 bg-rose-600 text-white text-sm font-medium rounded-full hover:bg-rose-700 transition shadow">
+                            <i class="fa-solid fa-rotate-left"></i> VOLVER AL INICIO
+                        </button>
+                    </div>
+                `,
+                right: `
+                    <div class="flex flex-col items-center justify-center h-full text-center space-y-6 bg-rose-100/40 rounded-2xl p-6 border border-rose-200">
+                        <div class="w-20 h-20 bg-rose-500 text-white rounded-full flex items-center justify-center shadow-lg text-3xl animate-bounce">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <h3 class="font-title text-2xl font-bold text-rose-800">Por Siempre Juntos</h3>
+                        <p class="text-gray-600 italic text-sm">
+                            "Gracias por cada sonrisa, cada abrazo y por regalarme tu corazón att:Pepe el pollo."
+                        </p>
+                        <div class="pt-4">
+                            <span class="font-script text-4xl text-rose-600">Te Amo Con Todo Mi Corazón</span>
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
+        let currentSpreadIndex = 0;
+        const totalSpreads = bookSpreads.length;
+
+        function updateBookView() {
+            const leftContainer = document.getElementById('left-content');
+            const rightContainer = document.getElementById('right-content');
+            
+            // Apply gentle fade effect
+            leftContainer.style.opacity = '0';
+            rightContainer.style.opacity = '0';
+            
+            setTimeout(() => {
+                leftContainer.innerHTML = bookSpreads[currentSpreadIndex].left;
+                rightContainer.innerHTML = bookSpreads[currentSpreadIndex].right;
+                
+                leftContainer.style.opacity = '1';
+                rightContainer.style.opacity = '1';
+            }, 200);
+
+            // Update page number indicator
+            document.getElementById('current-page-num').textContent = currentSpreadIndex + 1;
+            document.getElementById('total-pages-num').textContent = totalSpreads;
+
+            // Update navigation button states
+            document.getElementById('prev-btn').disabled = currentSpreadIndex === 0;
+            document.getElementById('next-btn').disabled = currentSpreadIndex === totalSpreads - 1;
+        }
+
+        function nextSpread() {
+            if (currentSpreadIndex < totalSpreads - 1) {
+                currentSpreadIndex++;
+                updateBookView();
+            }
+        }
+
+        function prevSpread() {
+            if (currentSpreadIndex > 0) {
+                currentSpreadIndex--;
+                updateBookView();
+            }
+        }
+
+        function goToSpread(index) {
+            if (index >= 0 && index < totalSpreads) {
+                currentSpreadIndex = index;
+                updateBookView();
+            }
+        }
+
+        // Initialize application on window load
+        window.onload = function() {
+            updateBookView();
+        };
+    </script>
+</body>
+</html>
